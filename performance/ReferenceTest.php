@@ -5,6 +5,7 @@
 //使用unset可以释放掉变量内存
 // 如果使用 $tmp = &$arr; 则tmp和arr内存指向一致 要改变一起改变，不会开辟新内存出来
 
+//php引用传递比值传递效率更好 但引用传递容易出错，要小心
 $g1 = memory_get_usage();
 echo "start global mem :".$g1."\n";
 
