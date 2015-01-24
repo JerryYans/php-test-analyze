@@ -17,21 +17,25 @@ for ($i = 0; $i < 20; $i++) {
 //	dump($arr);
 	$start = microtime(true);
 	$arr2 = quick_sort($arr);
+	sort($arr);
 	$end = microtime(true);
 //	dump($arr2);
 	$deal_time = $end-$start;
 	echo "deal_time:".$deal_time."\n";
 	$deal_times[] = $deal_time;
 }
+$rs_times = array();
 foreach ($deal_times as $k=>$deal_time) {
 	if ($deal_time == max($deal_times) || $deal_time == min($deal_times)){
-		echo " unset:".$deal_time."\n";
-		unset($deal_times[$k]);
+		//echo " unset:".$deal_time."\n";
+		//unset($deal_times[$k]);
+	}else {
+		$rs_times[] = $deal_time;
 	}
 }
 
-$all = array_sum($deal_times);
-$avg_time = $all/count($deal_times);
+$all = array_sum($rs_times);
+$avg_time = $all/count($rs_times);
 echo "avg time : " . $deal_time."\n";
 
 function maopao1($arr){
